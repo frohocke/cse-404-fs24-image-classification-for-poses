@@ -8,13 +8,13 @@ actions = {"baseball_pitch" : 0,  "clean_and_jerk": 1,  "pullup" : 2, "strum_gui
 "baseball_swing" : 4, "golf_swing" : 5, "pushup" : 6,  "tennis_forehand" : 7,
 "bench_press" : 8,  "jumping_jacks": 9,   "situp" : 10,   "tennis_serve" : 11,
 "bowl" : 12,  "jump_rope" : 13, "squat" : 14}
-csvTrainPath = "TrainTable" + '.csv'
-csvTestPath = "TestTable" + '.csv'
+csvTrainPath = "penn_action/TrainTable" + '.csv'
+csvTestPath = "penn_action/TestTable" + '.csv'
 
 rows = []
 testRows = []
-for filename in os.listdir('labels'):
-    mat = scipy.io.loadmat('labels/' + filename)
+for filename in os.listdir('Penn_Action/labels'):
+    mat = scipy.io.loadmat('Penn_Action/labels/' + filename)
 
     
     temp = {}
@@ -30,11 +30,17 @@ print(rows)
 with open(csvTrainPath, 'w') as f1:
        writer = csv.DictWriter(f1,fieldnames=fieldnames)
        writer.writeheader()
+       i = 0
        for entry in rows:
-           writer.writerow(entry)
+           if i%4:
+             writer.writerow(entry)
+           i+=1
 
 with open(csvTestPath, 'w') as f1:
        writer = csv.DictWriter(f1,fieldnames=fieldnames)
        writer.writeheader()
+       i = 0
        for entry in rows:
-           writer.writerow(entry)
+           if not i%4:
+             writer.writerow(entry)
+           i+=1
