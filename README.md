@@ -2,8 +2,8 @@
 
 Group Members:
 
-Ella Frohock
-Jackie Nehra
-Eric Wen
-Cameron Otten
-Tommy Whaley
+Ella Frohock  
+Jackie Nehra  
+Eric Wen  
+Cameron Otten  
+Tommy Whaley  
